@@ -1,0 +1,9 @@
+[
+  {
+    "distorted": "Required. Path to the distorted video.",
+    "reference": "Required. Path to the reference video.",
+    "script": "Required. Path to the Vapoursynth script segment. See `script_sample.vpy` for an example.",
+    "output": "Required. Output directory.",
+    "subtitle": "Optional. Path to subtitle file."
+  }
+]
