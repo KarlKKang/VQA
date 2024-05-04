@@ -28,8 +28,8 @@ for j in range(2):
         frame = res[frame_num]
         frame = core.imwri.Write(
             frame,
-            "PNG",
-            filename=f"{metric_name}{i}_f{frame_num}_psnr{psnr}_ssim{ssim}.png",
+            "TIFF",
+            filename=f"{metric_name}{i}_f{frame_num}_psnr{psnr}_ssim{ssim}.tiff",
             overwrite=True,
         )
         if res_trim is None:
