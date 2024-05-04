@@ -196,13 +196,11 @@ def main():
         )  # change working directory to the directory of config.json as the paths may be relative
         if not isinstance(i, dict):
             raise TypeError("config.json should be a list of objects")
-        distorted_path = os.path.abspath(i.get("distorted"))
-        reference_path = os.path.abspath(i.get("reference"))
-        output_path = os.path.abspath(i.get("output"))
-        script_path = os.path.abspath(i.get("script"))
+        distorted_path = i.get("distorted")
+        reference_path = i.get("reference")
+        output_path = i.get("output")
+        script_path = i.get("script")
         subtitle_path = i.get("subtitle")
-        if subtitle_path is not None:
-            subtitle_path = os.path.abspath(subtitle_path)
         if (
             distorted_path is None
             or reference_path is None
@@ -210,6 +208,12 @@ def main():
             or script_path is None
         ):
             raise AttributeError("Missing required fields in config.json")
+        distorted_path = os.path.abspath(distorted_path)
+        reference_path = os.path.abspath(reference_path)
+        output_path = os.path.abspath(output_path)
+        script_path = os.path.abspath(script_path)
+        if subtitle_path is not None:
+            subtitle_path = os.path.abspath(subtitle_path)
         check_video(
             distorted_path,
             reference_path,
