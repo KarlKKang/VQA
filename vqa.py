@@ -171,7 +171,11 @@ def check_video(
 def main():
     parser = argparse.ArgumentParser(description="VQA - Video Quality Assurance tool")
     parser.add_argument(
-        "-c", "--config", type=str, required=True, help="Path to the configuration file"
+        "-c",
+        "--config",
+        type=str,
+        default="config.json",
+        help="Path to the configuration file",
     )
     parser.add_argument(
         "-n",
