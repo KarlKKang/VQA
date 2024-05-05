@@ -38,7 +38,7 @@ def create_temp_script(
     script_path: str,
     output_script_name: str,
 ):
-    with open(os.path.join(SCRIPT_DIR, "header.vpy"), "r") as f:
+    with open(os.path.join(SCRIPT_DIR, "header.vpy"), "r", encoding="utf-8") as f:
         script = f.read()
     if subtitle_path is None:
         subtitle_path = "None"
@@ -52,11 +52,11 @@ def create_temp_script(
         + f"distorted_path = '{distorted_path}'\n"
         + f"subtitle_path = {subtitle_path}\n"
     )
-    with open(script_path, "r") as f:
+    with open(script_path, "r", encoding="utf-8") as f:
         script += f.read()
-    with open(os.path.join(SCRIPT_DIR, output_script_name), "r") as f:
+    with open(os.path.join(SCRIPT_DIR, output_script_name), "r", encoding="utf-8") as f:
         script += "\n" + f.read()
-    with open("__vqa__.vpy", "w") as f:
+    with open("__vqa__.vpy", "w", encoding="utf-8") as f:
         f.write(script)
 
 
@@ -188,7 +188,7 @@ def main():
 
     config_path = os.path.abspath(args.config)
     wd = os.path.dirname(config_path)
-    with open(config_path, "r") as f:
+    with open(config_path, "r", encoding="utf-8") as f:
         config = json.load(f)
 
     if not isinstance(config, list):
