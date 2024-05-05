@@ -178,6 +178,12 @@ def main():
         help="Path to the configuration file",
     )
     parser.add_argument(
+        "--config-encoding",
+        type=str,
+        default="utf-8",
+        help="The encoding of the config file",
+    )
+    parser.add_argument(
         "-n",
         "--num-frames",
         type=int,
@@ -187,8 +193,9 @@ def main():
     args = parser.parse_args()
 
     config_path = os.path.abspath(args.config)
+    config_encoding = args.config_encoding
     wd = os.path.dirname(config_path)
-    with open(config_path, "r", encoding="utf-8") as f:
+    with open(config_path, "r", encoding=config_encoding) as f:
         config = json.load(f)
 
     if not isinstance(config, list):
